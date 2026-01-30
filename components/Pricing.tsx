@@ -3,6 +3,7 @@
 import { motion, AnimatePresence } from 'framer-motion'
 import { Check, X, Crown, ArrowRight } from 'lucide-react'
 import { useState } from 'react'
+import Link from 'next/link'
 
 const pricingPlans = [
   {
@@ -128,20 +129,22 @@ export function Pricing() {
               </ul>
 
               <AnimatePresence mode="wait">
-                <motion.button
-                  key={plan.name}
-                  initial={{ scale: 0 }}
-                  animate={{ scale: 1 }}
-                  exit={{ scale: 0 }}
-                  className={`w-full py-6 px-8 rounded-2xl font-bold text-lg flex items-center justify-center gap-3 transition-all duration-300 ${
-                    plan.popular
-                      ? 'bg-gradient-to-r from-white to-slate-200 text-slate-900 shadow-2xl hover:shadow-white/50 hover:scale-105 hover:-translate-y-1 hover:shadow-3xl'
-                      : 'bg-gradient-to-r from-teal-500/80 to-cobalt-500/80 backdrop-blur-sm border border-teal-500/50 text-white hover:from-teal-600 hover:to-cobalt-600 hover:shadow-teal-500/25'
-                  }`}
-                >
-                  {plan.popular ? 'Start 7-day Free Trial' : 'Get Started Free'}
-                  <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
-                </motion.button>
+                <Link href="/signup" className="w-full block">
+                  <motion.div
+                    key={plan.name}
+                    initial={{ scale: 0 }}
+                    animate={{ scale: 1 }}
+                    exit={{ scale: 0 }}
+                    className={`w-full py-6 px-8 rounded-2xl font-bold text-lg flex items-center justify-center gap-3 transition-all duration-300 ${
+                      plan.popular
+                        ? 'bg-gradient-to-r from-white to-slate-200 text-slate-900 shadow-2xl hover:shadow-white/50 hover:scale-105 hover:-translate-y-1 hover:shadow-3xl'
+                        : 'bg-gradient-to-r from-teal-500/80 to-cobalt-500/80 backdrop-blur-sm border border-teal-500/50 text-white hover:from-teal-600 hover:to-cobalt-600 hover:shadow-teal-500/25'
+                    }`}
+                  >
+                    {plan.popular ? 'Start 7-day Free Trial' : 'Get Started Free'}
+                    <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+                  </motion.div>
+                </Link>
               </AnimatePresence>
             </motion.div>
           ))}
