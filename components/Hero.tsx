@@ -45,7 +45,7 @@ export function Hero() {
           className="flex flex-col sm:flex-row gap-4 justify-center items-center"
         >
           <Link
-            href="#pricing"
+            href="/signup"
             className="group bg-gradient-to-r from-teal-500 to-cobalt-500 hover:from-teal-600 hover:to-cobalt-600 text-white px-12 py-4 rounded-2xl font-semibold text-lg shadow-2xl hover:shadow-teal-500/25 transition-all duration-300 flex items-center gap-3 hover:scale-105"
           >
             Get Started Free
